@@ -1,3 +1,4 @@
+
 /* eslint-disable @next/next/no-img-element */
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -315,11 +316,16 @@ export default function Token(props) {
                 }}
               >
                 <Icon icon={CalendarIcon} />
-                {token.created_at !== null
-                  ? `Minted on ${moment(tree.time_created).format(
-                      'MMMM Do, YYYY',
-                    )}`
-                  : 'Unknown Mint Date'}
+                {token.created_at !== null ? (
+                  <>
+                    Minted on
+                    <time dateTime={moment(tree.time_created)}>
+                      {`${moment(tree.time_created).format('MMMM Do, YYYY')}`}
+                    </time>
+                  </>
+                ) : (
+                  'Unknown Mint Date'
+                )}
               </Typography>
 
               <Box
@@ -369,11 +375,16 @@ export default function Token(props) {
                 }}
               >
                 <Icon icon={CalendarIcon} />
-                {token.created_at !== null
-                  ? `Minted on ${moment(tree.time_created).format(
-                      'MMMM Do, YYYY',
-                    )}`
-                  : 'Unknown Mint Date'}
+                {token.created_at !== null ? (
+                  <>
+                    Minted on
+                    <time dateTime={moment(tree.time_created)}>
+                      {`${moment(tree.time_created).format('MMMM Do, YYYY')}`}
+                    </time>
+                  </>
+                ) : (
+                  'Unknown Mint Date'
+                )}
               </Typography>
               <Box
                 sx={{
@@ -433,7 +444,9 @@ export default function Token(props) {
         <TagList>
           <TreeTag
             key="created-at"
-            TreeTagValue={new Date(token.created_at).toLocaleDateString()}
+            TreeTagValue=<time dateTime={new Date(token.created_at)}>
+              {new Date(token.created_at).toLocaleDateString()}
+            </time>
             title="Created At"
             icon={<Icon icon={CalendarIcon} />}
           />
@@ -504,7 +517,9 @@ export default function Token(props) {
                   flex: '0 0 100px',
                 }}
               >
-                {new Date(token.created_at).toLocaleDateString()}
+                <time dateTime={new Date(token.created_at)}>
+                  {new Date(token.created_at).toLocaleDateString()}
+                </time>
               </TimelineOppositeContent>
               <TimelineSeparator>
                 <TimelineDot color="primary" />
@@ -534,7 +549,9 @@ export default function Token(props) {
                   }}
                   color="text.secondary"
                 >
-                  {new Date(transaction.processed_at).toLocaleDateString()}
+                  <time dateTime={new Date(transaction.processed_at)}>
+                    {new Date(transaction.processed_at).toLocaleDateString()}
+                  </time>
                 </TimelineOppositeContent>
                 <TimelineSeparator>
                   <TimelineDot color="primary" />
