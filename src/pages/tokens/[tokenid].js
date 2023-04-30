@@ -745,7 +745,7 @@ async function serverSideData(params, query) {
 // const getStaticPaths = async () => {
 //   return {
 //     paths: [],
-//     fallback: 'blocking',
+//     fallback: 'blockfing',
 //   };
 // };
 
